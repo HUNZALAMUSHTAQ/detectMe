@@ -1,24 +1,23 @@
 import logo from './logo.svg';
 import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import Capture from './pages/Capture';
+import Analyze from './pages/Analyze';
+import { Stack } from '@mui/system';
+import { Typography } from '@mui/material';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path='/capture' element={<Capture />} />
+      <Route path='/analyze' element={<Analyze />} />
+      <Route path='*' element={
+        <Stack alignItems={'center'}>
+          <Typography variant='h2'> 404 </Typography>
+        </Stack>
+      } />
+
+    </Routes>
   );
 }
 
